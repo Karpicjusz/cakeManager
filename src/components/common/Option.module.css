@@ -1,0 +1,41 @@
+.configOption {
+  border: 2px solid var(--cream);
+  border-radius: 10px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.configOption:hover {
+  border-color: var(--sage-green);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(155, 181, 166, 0.2);
+}
+
+.configOption.selected {
+  border-color: var(--sage-green);
+  background: rgba(155, 181, 166, 0.08);
+  box-shadow: 0 4px 15px rgba(155, 181, 166, 0.3);
+}
+
+.optionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.optionColorSwatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.optionDetails { flex: 1; }
+.optionName { font-weight: 600; font-size: 0.9rem; }
+.optionDescription { font-size: 0.75rem; color: var(--dark-sage); }

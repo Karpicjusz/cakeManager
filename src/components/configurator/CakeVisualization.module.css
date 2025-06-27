@@ -1,0 +1,95 @@
+.visualizationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  background: rgba(248, 246, 243, 0.95);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.layerMode {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.cakeContainer, .layerView {
+  position: absolute;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Cake View */
+.cakeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cakeContainer.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+.cakeTier {
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  margin-bottom: -8px;
+}
+
+.tier1 { width: 220px; height: 100px; background: linear-gradient(135deg, var(--sage-green), var(--dark-sage)); order: 3; }
+.tier2 { width: 180px; height: 85px; background: linear-gradient(135deg, var(--soft-pink), #E8B4C8); order: 2; opacity: 0; transform: translateY(20px); }
+.tier3 { width: 140px; height: 70px; background: linear-gradient(135deg, var(--gold), #E6C589); order: 1; opacity: 0; transform: translateY(20px); }
+
+.tier2.active, .tier3.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Layer View */
+.layerView {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+.layerView.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.cakeLayer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  transition: all 0.4s ease;
+}
+
+.layerLabel {
+  background: rgba(255,255,255,0.95);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

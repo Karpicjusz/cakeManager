@@ -1,0 +1,123 @@
+.configStep {
+  border: 2px solid var(--cream);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.stepHeader {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.stepTitle {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.stepNumber {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stepStatus {
+    font-size: 0.9rem;
+    color: var(--dark-sage);
+    text-transform: capitalize;
+}
+
+.stepChevron {
+    transition: transform 0.3s ease;
+    color: var(--dark-sage);
+}
+
+.stepContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 1.5rem;
+}
+
+/* States */
+.expanded .stepContent {
+  max-height: 800px; /* Increased height */
+  padding: 0 1.5rem 1.5rem;
+}
+
+.expanded .stepChevron {
+  transform: rotate(180deg);
+}
+
+.active {
+  border-color: var(--sage-green);
+  background: rgba(155, 181, 166, 0.05);
+}
+.active .stepNumber {
+  background: var(--sage-green);
+  color: white;
+}
+
+.completed {
+  border-color: var(--soft-pink);
+}
+.completed .stepNumber {
+  background: var(--soft-pink);
+  color: white;
+}
+
+.locked {
+  opacity: 0.6;
+}
+.locked .stepHeader {
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .stepHeader {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .expanded .stepContent {
+        padding: 0 1rem 1rem;
+    }
+
+    .stepContent {
+        padding: 0 1rem;
+    }
+}
+
+.optionalBadge {
+  background: var(--cream);
+  color: var(--dark-sage);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 2px 8px;
+  margin-left: 0.7em;
+  vertical-align: middle;
+  border: 1px solid var(--sage-green);
+}

@@ -1,0 +1,28 @@
+:root {
+  --sage-green: #9BB5A6;
+  --soft-pink: #E8B4C8;
+  --cream: #F8F6F3;
+  --gold: #D4A574;
+  --dark-sage: #7A9585;
+  --white: #FFFFFF;
+  --text-dark: #2C3E36;
+  --error-red: #e74c3c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+main {
+  padding-top: 70px; /* Adjust based on Navbar height */
+}

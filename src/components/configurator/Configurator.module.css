@@ -1,0 +1,37 @@
+.cakeControls {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.configurationSteps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pricePlaceholder {
+    background: var(--cream);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 1.5rem;
+    border: 2px dashed var(--sage-green);
+}
+
+.pricePlaceholder h4 {
+    color: var(--sage-green);
+    margin-bottom: 0.5rem;
+}
+
+.pricePlaceholder p {
+    color: var(--dark-sage);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .cakeControls {
+        padding: 1rem;
+    }
+}

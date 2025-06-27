@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output (zbudowana aplikacja, której nie wrzucamy do repo)
+build/
+dist/
+
+# Env files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Systemowe śmieci
+.DS_Store
+Thumbs.db
+
+# IDE / edytory
+.vscode/
+.idea/
+*.swp
+
+# logi / raporty
+*.log
+coverage/
+*.tgz
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Git
+.git/
+*.orig
+
+# CI / deploy tools
+*.zip
+*.tar.gz
+.deploy/
