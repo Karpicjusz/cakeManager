@@ -32,10 +32,18 @@ const ConfigStep = ({ stepId, title, children }) => {
  const getStatusText = () => {
     if (stepId === 'size') return `${cake.persons} people`;
     if (cake[`${stepId}Type`]) return cake[`${stepId}Type`].replace('-', ' ');
+    
     if (stepId === 'creme') {
       if (cake.cremeType1 && cake.cremeType2) return `${cake.cremeType1.replace('-', ' ')} & ${cake.cremeType2.replace('-', ' ')}`;
       if (cake.cremeType1) return `${cake.cremeType1.replace('-', ' ')} (1 of 2)`;
       return 'Choose 2 flavours';
+    }
+    if (stepId === 'delivery') {
+      const isDeliveryComplete = cake.deliveryDate && cake.deliveryTime && cake.contactName && cake.contactEmail && cake.contactPhone;
+      if (isDeliveryComplete) {
+        return new Date(cake.deliveryDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+      return 'Enter details';
     }
     if (stepId === 'delivery' && cake.deliveryDate) return new Date(cake.deliveryDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     if (stepId === 'text') {

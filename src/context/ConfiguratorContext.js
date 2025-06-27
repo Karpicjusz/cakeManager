@@ -26,6 +26,10 @@ const initialState = {
     decorationDetails: '',
     customText: '',
     deliveryDate: null,
+    deliveryTime: null,
+    contactName: '',
+    contactEmail: '',
+    contactPhone: '',
   },
   isLayerView: false,
 };
@@ -69,7 +73,10 @@ const reducer = (state, action) => {
       let currentStepIsCompleted = false;
 
       // Determine if the current step is completed based on its type and new value
-      if (stepId === 'creme') {
+      if (stepId === 'delivery') {
+        // Delivery step is completed if date, time, name, email, and phone are all provided
+        currentStepIsCompleted = updatedCake.deliveryDate && updatedCake.deliveryTime && updatedCake.contactName && updatedCake.contactEmail && updatedCake.contactPhone;
+      } else if (stepId === 'creme') {
         // Creme step is completed if both cremeType1 and cremeType2 are selected
         currentStepIsCompleted = updatedCake.cremeType1 && updatedCake.cremeType2;
       } else if (['gelly', 'crisp'].includes(stepId)) {
@@ -83,7 +90,7 @@ const reducer = (state, action) => {
         // Text step is completed if custom text is provided
         currentStepIsCompleted = updatedCake.customText.trim() !== '';
       } else {
-        // For other required steps (size, sponge, delivery), they are completed if a value is set
+        // For other required steps (size, sponge), they are completed if a value is set
         // The 'uncomplete' flag is primarily for optional steps where unselecting means 'not completed'
         currentStepIsCompleted = !uncomplete;
       }

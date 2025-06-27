@@ -60,5 +60,3 @@ const SpongeStep = () => {
   );
 };
 export default SpongeStep;
-// NOTE: CremeStep, GellyStep, and CrispStep would be structured identically,
-// changing 'spongeType' to 'cremeType', etc., and removing the stevia checkbox.

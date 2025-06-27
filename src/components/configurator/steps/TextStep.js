@@ -11,7 +11,7 @@ const TextStep = () => {
     const [validation, setValidation] = useState({ isValid: true, count: 0 });
 
     useEffect(() => {
-        const validationResult = validateCustomText(text);
+        const validationResult = validateCustomText(text || ''); // Ensure text is not null/undefined
         setValidation(validationResult);
         if (validationResult.isValid) {
             dispatch({
@@ -26,7 +26,7 @@ const TextStep = () => {
     }, [text, dispatch, stepConfig.id, stepConfig.next]);
 
     const getValidationMessage = () => {
-        if (!text) return "Enter up to 3 words.";
+        if (!text || text.trim() === '') return "Enter up to 3 words.";
         if (!validation.isValid) return `Too many words! (${validation.count}/3)`;
         return `${validation.count} of 3 words used.`;
     }

@@ -30,6 +30,27 @@
     font-size: 0.9rem;
 }
 
+.orderSummarySection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.placeOrderButton {
+    background: var(--sage-green);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, opacity 0.3s ease;
+}
+.placeOrderButton:disabled { opacity: 0.6; cursor: not-allowed; }
+.placeOrderButton:hover:not(:disabled) { background: var(--dark-sage); }
+
 @media (max-width: 480px) {
     .cakeControls {
         padding: 1rem;

@@ -8,11 +8,11 @@ const CakeVisualization = () => {
   const { cake, isLayerView } = state;
 
   const { spongeColor, cremeColor1, cremeColor2, gellyColor, crispColor } = useMemo(() => {
-    const getColor = (type, defaultColor) =>
-      CAKE_OPTIONS[type].options.find(o => o.id === cake[`${type}Type`])?.color || defaultColor;
+    const getColor = (type, cakeProperty, defaultColor) =>
+      CAKE_OPTIONS[type].options.find(o => o.id === cake[cakeProperty])?.color || defaultColor;
 
     return {
-      spongeColor: getColor('sponge', 'linear-gradient(135deg, #F4D03F, #F7DC6F)'),
+      spongeColor: getColor('sponge', 'spongeType', 'linear-gradient(135deg, #F4D03F, #F7DC6F)'),
       // Use cremeType1 and cremeType2 for colors
       cremeColor1: CAKE_OPTIONS.creme.options.find(o => o.id === cake.cremeType1)?.color || 'linear-gradient(135deg, #FFFEF7, #F8F6F0)',
       cremeColor2: CAKE_OPTIONS.creme.options.find(o => o.id === cake.cremeType2)?.color || 'linear-gradient(135deg, #FFFEF7, #F8F6F0)',

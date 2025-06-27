@@ -7,6 +7,13 @@ import ConfiguratorPage from './pages/ConfiguratorPage';
 
 function App() {
   return (
+    // The main element should ideally not be directly under a fragment if it's the only child of the fragment.
+    // However, given the existing structure, we'll keep it as is.
+    // A better approach for the root would be:
+    // <BrowserRouter>
+    //   <Navbar />
+    //   <main>...</main>
+    // </BrowserRouter>
     <>
       <Navbar />
       <main>

@@ -70,7 +70,7 @@ export const CAKE_OPTIONS = {
   delivery: {
     id: 'delivery',
     title: 'Delivery Date',
-    next: null,
+    next: null, // This is the last step, so next is null
   },
 };
 

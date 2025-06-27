@@ -61,6 +61,7 @@
 .textInput, .dateInput { width: 100%; padding: 1rem; font-size: 1rem; border: 2px solid var(--cream); border-radius: 10px; }
 .textInput.error { border-color: var(--error-red); }
 .validationMessage { font-size: 0.8rem; margin-top: 0.5rem; color: var(--dark-sage); }
+.validationMessage:empty { display: none; } /* Hide if no message */
 .validationMessage.error { color: var(--error-red); }
 .selectedDate { color: var(--sage-green); font-weight: 600; margin-top: 0.5rem; }
 

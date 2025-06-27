@@ -61,7 +61,7 @@
 
 /* States */
 .expanded .stepContent {
-  max-height: 800px; /* Increased height */
+  max-height: 2000px; /* Sufficiently large to accommodate all step content, especially on mobile */
   padding: 0 1.5rem 1.5rem;
 }
 
