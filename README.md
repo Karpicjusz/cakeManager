@@ -8,7 +8,7 @@
      *   Cake Size (number of persons, automatically determines tiers)
      *   Sponge Type (with optional Stevia/Erythritol)
      *   Creme Flavour
-     *   Optional Gelly Fruit Layer
+     *   Creme Flavour (two distinct layers)
      *   Optional Crisp Layer
      *   Decoration Ideas (upload inspiration photo, text description)
      *   Custom Text Message (max 3 words)
@@ -205,8 +205,9 @@
      *   Selecting a sponge will activate the "Creme Flavour" step.
 
  3.  **Creme Flavour:**
-     *   Select your desired creme flavor.
-     *   This will activate the "Gelly Fruit" step.
+     *   You will be prompted to select two different creme flavours, one for each layer of your cake.
+     *   Choose your first flavour for "Creme Layer 1" and then your second for "Creme Layer 2".
+     *   Once both are selected, this will activate the "Gelly Fruit" step.
 
  4.  **Gelly Fruit (Optional):**
      *   This is an optional layer. If you wish to include a gelly fruit layer, select one of the flavors.
@@ -244,8 +245,8 @@
  *   **Layer View:** When you are on steps related to internal components (Sponge, Creme, Gelly, Crisp), the visualization will switch to a "layer view" showing a cross-section of your cake with the selected colors for each layer. This helps you visualize the internal composition.
 
  ### Price Calculator
-
- Currently, the price calculator is a placeholder. Pricing functionality is planned for future updates.
+ *   Currently, the price calculator is a placeholder. Pricing functionality is planned for future updates.
+ *   Note: Selecting two creme flavours does not currently affect the placeholder price.
 
  ## 🤝 Contributing
 

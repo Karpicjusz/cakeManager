@@ -29,17 +29,17 @@ const ConfigStep = ({ stepId, title, children }) => {
     }
   };
   
-  const getStatusText = () => {
+ const getStatusText = () => {
     if (stepId === 'size') return `${cake.persons} people`;
     if (cake[`${stepId}Type`]) return cake[`${stepId}Type`].replace('-', ' ');
-    if (stepId === 'delivery' && cake.deliveryDate) return new Date(cake.deliveryDate).toLocaleDateString();
+    if (stepId === 'creme') {
+      if (cake.cremeType1 && cake.cremeType2) return `${cake.cremeType1.replace('-', ' ')} & ${cake.cremeType2.replace('-', ' ')}`;
+      if (cake.cremeType1) return `${cake.cremeType1.replace('-', ' ')} (1 of 2)`;
+      return 'Choose 2 flavours';
+    }
+    if (stepId === 'delivery' && cake.deliveryDate) return new Date(cake.deliveryDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     if (stepId === 'text') {
       if (cake.customText) return `"${cake.customText}"`;
-      if (steps[stepId].status !== 'locked') return 'Skipped';
-      return 'Choose text';
-    }
-    if (['gelly', 'crisp'].includes(stepId)) {
-      if (cake[`${stepId}Type`]) return cake[`${stepId}Type`].replace('-', ' ');
       if (steps[stepId].status !== 'locked') return 'Skipped';
       return `Choose ${stepId}`;
     }

@@ -21,6 +21,11 @@
 .infoBox h4 { color: var(--text-dark); margin-bottom: 0.5rem; }
 .infoBox p { color: var(--dark-sage); font-size: 0.9rem; }
 
+.infoBox.errorBox {
+  background: #ffebeb; /* Light red background */
+  border: 1px solid var(--error-red);
+  color: var(--error-red);
+}
 /* Slider Styles */
 .sliderContainer { position: relative; margin: 2rem 0; }
 .personsSlider { width: 100%; }
