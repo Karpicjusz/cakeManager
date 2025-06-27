@@ -44,9 +44,9 @@ const Navbar = () => {
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className={styles.bar}></span>
-          <span className={styles.bar}></span>
-          <span className={styles.bar}></span>
+          <span className={styles.bar} aria-hidden="true"></span>
+          <span className={styles.bar} aria-hidden="true"></span>
+          <span className={styles.bar} aria-hidden="true"></span>
         </button>
         <ul className={`${styles.navLinks} ${menuOpen ? styles.open : ''}`}>
           <li><NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setMenuOpen(false)}>Home</NavLink></li>

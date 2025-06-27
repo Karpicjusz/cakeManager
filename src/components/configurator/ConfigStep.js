@@ -64,7 +64,7 @@ const ConfigStep = ({ stepId, title, children }) => {
         </div>
         <div className={styles.headerRight}>
             <span className={styles.stepStatus}>{getStatusText()}</span>
-            <span className={styles.stepChevron}>▼</span>
+            <span className={styles.stepChevron} aria-hidden="true">▼</span>
         </div>
       </div>
       <div className={styles.stepContent} id={`step-content-${stepId}`}>

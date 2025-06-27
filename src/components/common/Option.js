@@ -6,6 +6,12 @@ const Option = ({ option, isSelected, onSelect, children }) => {
     <div
       className={`${styles.configOption} ${isSelected ? styles.selected : ''}`}
       onClick={onSelect}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') onSelect();
+      }}
+      role="button"
+      tabIndex={0}
+      aria-pressed={isSelected}
     >
       <div className={styles.optionHeader}>
         <div className={styles.optionColorSwatch} style={{ background: option.color }}></div>

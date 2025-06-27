@@ -1,4 +1,5 @@
 import React, { createContext, useReducer, useMemo } from 'react';
+import { STEP_ORDER, CAKE_OPTIONS } from '../constants/cakeOptions';
 
 const initialState = {
   activeStep: 'size',
@@ -33,16 +34,20 @@ const reducer = (state, action) => {
     case 'SET_ACTIVE_STEP': {
       const stepId = action.payload;
 
-      if (stepId && state.steps[stepId]?.status === 'locked') {
+      // Prevent activating locked steps
+      if (stepId && state.steps[stepId]?.status === 'locked' && stepId !== state.activeStep) {
         return state;
       }
       
       const newSteps = { ...state.steps };
-      Object.keys(newSteps).forEach(key => {
-        if (newSteps[key].status === 'active') {
-          newSteps[key].status = 'default';
+
+      // Deactivate current active step if it exists and is not the new active step
+      if (state.activeStep && newSteps[state.activeStep]?.status === 'active' && state.activeStep !== stepId) {
+        newSteps[state.activeStep] = {
+          ...newSteps[state.activeStep],
+          status: newSteps[state.activeStep].isCompleted ? 'completed' : 'default', // Revert to completed or default
         }
-      });
+      };
 
       if (stepId) {
         newSteps[stepId].status = 'active';
@@ -63,17 +68,26 @@ const reducer = (state, action) => {
       } else {
         newSteps[stepId] = { ...newSteps[stepId], isCompleted: true };
       }
-      if (nextStepId && newSteps[nextStepId]?.status === 'locked') {
-        newSteps[nextStepId].status = 'default';
+
+      // Unlock the next step if it exists and is currently locked
+      if (nextStepId && newSteps[nextStepId] && newSteps[nextStepId].status === 'locked') {
+        newSteps[nextStepId] = { ...newSteps[nextStepId], status: 'default' };
       }
-      const requiredSteps = ['size', 'sponge', 'creme'];
-      const optionalSteps = ['gelly', 'crisp', 'decorations', 'text'];
-      const allRequiredCompleted = requiredSteps.every(
-        (id) => (id === stepId ? true : newSteps[id].isCompleted)
+
+      // Dynamically determine required and optional steps
+      const allSteps = STEP_ORDER;
+      const requiredSteps = allSteps.filter(id => !['gelly', 'crisp', 'decorations', 'text', 'delivery'].includes(id)); // Assuming delivery is also required at the end
+
+      // Check if all required steps up to the current one are completed
+      const currentStepIndex = allSteps.indexOf(stepId);
+      const allPreviousRequiredCompleted = requiredSteps.every(
+        (id) => allSteps.indexOf(id) <= currentStepIndex ? newSteps[id].isCompleted : true
       );
-      if (allRequiredCompleted) {
-        optionalSteps.forEach((id) => {
-          if (newSteps[id].status === 'locked') {
+
+      // If all required steps are completed, unlock all subsequent steps that are currently locked
+      if (allPreviousRequiredCompleted) {
+        allSteps.slice(currentStepIndex + 1).forEach((id) => {
+          if (newSteps[id] && newSteps[id].status === 'locked') {
             newSteps[id].status = 'default';
           }
         });

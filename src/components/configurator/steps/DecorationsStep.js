@@ -34,7 +34,7 @@ const DecorationsStep = () => {
     <div className={styles.controlGroup}>
       <div className={styles.fileUploadContainer}>
         <label htmlFor="inspiration-upload" className={styles.fileUploadLabel}>
-            <span className={styles.uploadIcon}>📸</span>
+            <span className={styles.uploadIcon} aria-hidden="true">📸</span>
             <div className={styles.uploadText}>
                 <span className={styles.uploadTitle}>Upload Inspiration Photo</span>
             </div>
